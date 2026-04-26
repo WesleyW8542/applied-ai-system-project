@@ -151,8 +151,16 @@ Early in development, the AI recommended always scheduling high-priority tasks f
 
 | File | Description |
 |------|-------------|
-| [pawpal_system.py](applied-ai-system-final/pawpal_system.py) | Core domain models and scheduler |
-| [ai_agent.py](applied-ai-system-final/ai_agent.py) | PawPalAI agent implementation |
-| [app.py](applied-ai-system-final/app.py) | Streamlit web interface |
-| [tests/test_ai_agent.py](applied-ai-system-final/tests/test_ai_agent.py) | 15 AI agent tests |
-| [tests/test_pawpal.py](applied-ai-system-final/tests/test_pawpal.py) | 5 core system tests |
+| [pawpal_system.py](pawpal_system.py) | Core domain models and scheduler |
+| [ai_agent.py](ai_agent.py) | PawPalAI agent implementation |
+| [app.py](app.py) | Streamlit web interface |
+| [tests/test_ai_agent.py](tests/test_ai_agent.py) | 15 AI agent tests |
+| [tests/test_pawpal.py](tests/test_pawpal.py) | 5 core system tests |
+
+---
+
+## 11. Portfolio Artifact
+
+**GitHub Repository:** https://github.com/WesleyW8542/applied-ai-system-project
+
+This project demonstrates that I approach AI engineering not as a black-box user, but as a systems thinker. Rather than reaching for an LLM to do everything, I designed a structured agentic workflow with distinct, testable stages — Observe, Think, Act, Check — that mirrors how a thoughtful engineer would approach a problem: gather information, reason about it, produce output, then validate it. The result is a system that is predictable, explainable, and provably correct (20/20 tests), which reflects my belief that responsible AI engineering means building things you can reason about and trust — not just things that seem to work.
