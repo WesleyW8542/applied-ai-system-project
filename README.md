@@ -5,6 +5,10 @@
 
 **PawPal+** is an AI-powered pet care planning assistant that helps busy pet owners stay consistent with their pet care routines. The system uses an **Agentic Workflow** AI approach to analyze tasks, generate smart recommendations, and provide natural language explanations for scheduling decisions.
 
+## 🎥 Demo
+
+[Watch the demo on Loom](https://www.loom.com/share/bda2ff2971214ec28fd7cacf6ea4b3b1)
+
 ---
 
 ## 🎯 Why This Project Matters
