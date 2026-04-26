@@ -98,7 +98,18 @@ class PawPalAI:
         
         if not pending_tasks:
             analysis.insights.append("✅ All tasks completed! Great job staying on top of pet care.")
-        
+
+        # Time constraint guardrail — visible warning if tasks exceed available hours
+        total_minutes = sum(t.duration_minutes for t in pending_tasks)
+        available_minutes = int(self.owner.available_hours * 60)
+        if total_minutes > available_minutes:
+            msg = (
+                f"⚠️ Time Constraint: tasks need {total_minutes}min but only "
+                f"{available_minutes}min available — lower-priority tasks will be dropped."
+            )
+            analysis.insights.append(msg)
+            analysis.warnings.append(msg)
+
         # Task type insights
         if "walk" in task_by_type:
             analysis.insights.append(f"🚶 {task_by_type['walk']} walk task(s) scheduled - great for pet health!")

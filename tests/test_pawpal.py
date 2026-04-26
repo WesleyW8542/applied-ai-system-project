@@ -35,27 +35,17 @@ def test_scheduler_knapsack_chooses_high_priority_best_fit():
 
     assert len(plan) == 1
     assert plan[0].task.title == "High Priority"
-    assert plan[0].task.completed
     assert scheduler.score_plan() == 1 / 3
 
 
 def test_recurring_task_creates_next_occurrence_on_completion():
-    owner = Owner(name="Jordan", available_hours=1.5)
-    pet = Pet(name="Mochi", species="dog")
-    owner.add_pet(pet)
-
     today = date.today()
-    pet.add_task(Task(title="Walk", task_type="walk", duration_minutes=60, priority="high", frequency="daily", deadline=today))
+    task = Task(title="Walk", task_type="walk", duration_minutes=60, priority="high", frequency="daily", deadline=today)
 
-    scheduler = Scheduler(owner=owner)
-    plan = scheduler.generate_plan()
+    next_task = task.mark_complete()
 
-    assert len(plan) == 1
-    assert plan[0].task.completed
-
-    pending_tasks = pet.get_tasks(include_completed=False)
-    assert len(pending_tasks) == 1
-    next_task = pending_tasks[0]
+    assert task.completed
+    assert next_task is not None
     assert next_task.title == "Walk"
     assert next_task.frequency == "daily"
     assert next_task.deadline == today + timedelta(days=1)

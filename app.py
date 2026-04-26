@@ -114,6 +114,11 @@ with st.spinner("🤖 AI is analyzing your pet care tasks..."):
     try:
         analysis = ai_agent.run_agentic_workflow()
         
+        # Display warnings prominently
+        if analysis.warnings:
+            for warning in analysis.warnings:
+                st.warning(warning)
+
         # Display AI insights
         if analysis.insights:
             st.markdown("### 💡 AI Insights")
@@ -124,7 +129,7 @@ with st.spinner("🤖 AI is analyzing your pet care tasks..."):
                     st.success(insight)
                 else:
                     st.info(insight)
-        
+
         # Display recommendations
         if analysis.recommendations:
             st.markdown("### 📋 AI Recommendations")

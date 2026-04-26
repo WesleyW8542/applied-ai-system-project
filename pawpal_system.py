@@ -233,10 +233,6 @@ class Scheduler:
             current_time = end_time
             remaining_minutes -= task.duration_minutes
 
-            next_task = task.mark_complete()
-            if next_task:
-                assigned_pet.add_task(next_task)
-
         if not self.scheduled_items:
             self.explanation = "No tasks could be scheduled within available hours."
         else:
